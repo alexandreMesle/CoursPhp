@@ -33,7 +33,21 @@
                  *  Affichage des idées
                  */
                 foreach ($idees as $idee)
-                    print("<tr><td>" . $idee['nom'] . "</td><td>" . $idee['texte'] . "</td></tr>");
+                {
+                    $url = "show.php?id=" . $idee['id'];
+                    ?>
+                    <tr>
+                        <td>
+                            <a href="<?php print($url) ?>">
+                                <?php print($idee['nom']) ?>
+                            </a>
+                        </td>
+                        <td>
+                            <?php print($idee['texte']) ?>
+                        </td>
+                    </tr>
+                    <?php
+                }
             ?>
         </table>
         <form method="post" action="insert.php">
