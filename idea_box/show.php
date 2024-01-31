@@ -10,17 +10,27 @@
     require('credentials.php');
     $connexion = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $user, $password);
 /*
- * Lecture de données
+ * Lecture de l'idée
  */
     $chaine = 'select * from idea where id = ' . $_GET["id"];
     $requete = $connexion->prepare($chaine);
     $requete->execute();
     $idee = $requete->fetch();
+
 /*
  * Si l'idée n'existe pas, retour
  */
     if (!$idee)
         header("Location:.");
+
+/*
+* Lecture de la catégorie
+*/
+    $chaine = 'select * from category where id = ' . $idee["category_id"];
+    $requete = $connexion->prepare($chaine);
+    $requete->execute();
+    $categorie = $requete->fetch();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,6 +42,14 @@
     </head>
     <body>
         <table>
+            <tr>
+                <td>
+                    Catégorie :
+                </td>
+                <td>
+                    <?php print($categorie["nom"]) ?>
+                </td>
+            </tr>
             <tr>
                 <td>
                     Nom :

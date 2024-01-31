@@ -14,7 +14,15 @@
             require('credentials.php');
             $connexion = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $user, $password);
         /*
-         * Lecture de données
+         * Lecture des catégories
+         */
+            $requete = $connexion->prepare('select * from category');
+            $requete->execute();
+            // Création un tableau associatif dont la clé sera l'id des catégories.
+            $categories = $requete->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_UNIQUE|\PDO::FETCH_ASSOC);
+            // var_dump($categories) pour visualiser le tableau
+        /*
+         * Lecture des idées
          */
             $requete = $connexion->prepare('select * from idea');
             $requete->execute();
@@ -22,6 +30,9 @@
         ?>
     <table>
             <tr>
+                <th>
+                    Catégorie
+                </th>
                 <th>
                     Nom
                 </th>
@@ -39,6 +50,15 @@
                     ?>
                     <tr>
                         <td>
+                            <?php
+                                // Récupération du nom de la catégorie dont le numéro est category_id
+                                $categorie_id = $idee['category_id'];
+                                $categorie = $categories[$categorie_id];
+                                $nom = $categorie["nom"];
+                                print($nom)
+                            ?>
+                        </td>
+                        <td>
                             <a href="<?php print($url) ?>">
                                 <?php print($idee['nom']) ?>
                             </a>
@@ -52,11 +72,17 @@
             ?>
         </table>
         <form method="post" action="insert.php">
-            <input name="nom">
+            <input name="category_id" value="category_id">
             <br>
-            <textarea name="texte"></textarea>
+            <input name="nom" value="nom">
+            <br>
+            <textarea name="texte">texte</textarea>
             <br>
             <input type="submit" value="Ajouter une idée">
         </form>
+        <hr>
+        <a href="categories/">
+            Catégories
+        </a>
     </body>
 </html>

@@ -60,5 +60,6 @@
    ?>
     <hr>
     <a href="create.html">Ajouter</a>
+    <a href="../">Retour</a>
     </body>
 </html>

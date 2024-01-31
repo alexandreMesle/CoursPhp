@@ -1,4 +1,5 @@
 <?php
+
     /*
      * Connexion à la base de données
      */
@@ -7,9 +8,11 @@
     /*
      * Insertion
      */
-    if (isset($_POST['nom']) || isset($_POST['texte']))
+    if (isset($_POST['category_id'])  && (isset($_POST['nom']) || isset($_POST['texte'])))
     {
-      $chaine = "insert into idea (nom, texte) values('" . $_POST['nom'] . "', '" . $_POST['texte'] . "')";
+      $chaine = "insert into idea (nom, texte, category_id) values('"
+          . $_POST['nom'] . "', '" . $_POST['texte'] . "', " . $_POST['category_id']
+          . ")";
       $requete = $connexion->prepare($chaine);
       $resultat = $requete->execute();
     }
