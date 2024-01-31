@@ -7,9 +7,9 @@
     /*
      * Insertion
      */
-    if (isset($_POST['nom']))
+    if (isset($_GET['id']))
     {
-      $chaine = "insert into category (nom) values('" . $_POST['nom'] . "')";
+      $chaine = "delete from category where id = " . $_GET['id'];
       $requete = $connexion->prepare($chaine);
       $resultat = $requete->execute();
     }

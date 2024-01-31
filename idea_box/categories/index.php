@@ -38,6 +38,11 @@
                             <td>
                                 <?php print($categorie['nom']) ?>
                             </td>
+                            <td>
+                                <a href="delete.php?id=<?php print($categorie['id'])?>">
+                                    Supprimer
+                                </a>
+                            </td>
                         </tr>
                 <?php
                         }
