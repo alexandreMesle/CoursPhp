@@ -71,15 +71,29 @@
                 }
             ?>
         </table>
-        <form method="post" action="insert.php">
-            <input name="category_id" value="category_id">
-            <br>
-            <input name="nom" value="nom">
-            <br>
-            <textarea name="texte">texte</textarea>
-            <br>
-            <input type="submit" value="Ajouter une idée">
-        </form>
+        <?php
+            if (count($categories) > 0)
+            {
+        ?>
+            <form method="post" action="insert.php">
+                <select name="category_id">
+                <?php
+                    foreach($categories as $id => $categorie)
+                        print('<option value="' . $id . '">' . $categorie['nom'] . '</option>');
+                ?>
+                </select>
+                <br>
+                <input name="nom" value="nom">
+                <br>
+                <textarea name="texte">texte</textarea>
+                <br>
+                <input type="submit" value="Ajouter une idée">
+            </form>
+        <?php
+            }
+            else
+                print("Veuillez d'abord créer une catégorie");
+        ?>
         <hr>
         <a href="categories/">
             Catégories
