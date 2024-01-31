@@ -39,6 +39,11 @@
                                 <?php print($categorie['nom']) ?>
                             </td>
                             <td>
+                                <a href="edit.php?id=<?php print($categorie['id'])?>">
+                                    Modifier
+                                </a>
+                            </td>
+                            <td>
                                 <a href="delete.php?id=<?php print($categorie['id'])?>">
                                     Supprimer
                                 </a>
