@@ -1,14 +1,14 @@
 <html>
   <head>
-    <title>
       Convertisseur Euro en Dollar
+    <title>
     </title>
   </head>
   <body>
     <form method="get" action="index.php">
         Montant en €
         <input name="euro" value="0">
-        <input type="submit">
+        <input type="submit" value="Calculer">
     </form>
     <p>
       <?php
