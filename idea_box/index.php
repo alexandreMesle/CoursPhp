@@ -54,9 +54,11 @@
                                 // Récupération du nom de la catégorie dont le numéro est category_id
                                 $categorie_id = $idee['category_id'];
                                 $categorie = $categories[$categorie_id];
-                                $nom = $categorie["nom"];
-                                print($nom)
+                                $categorie_nom = $categorie["nom"];
                             ?>
+                            <a href="categories/show.php?id=<?php print($categorie_id) ?>">
+                                <?php print($categorie_nom)?>
+                            </a>
                         </td>
                         <td>
                             <a href="<?php print($url) ?>">

@@ -36,7 +36,9 @@
                         ?>
                         <tr>
                             <td>
-                                <?php print($categorie['nom']) ?>
+                                <a href="show.php?id=<?php print($categorie['id'])?>">
+                                    <?php print($categorie['nom']) ?>
+                                </a>
                             </td>
                             <td>
                                 <a href="edit.php?id=<?php print($categorie['id'])?>">
