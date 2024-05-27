@@ -9,6 +9,10 @@
     <body>
     <?php
         /*
+         * Informations de connexion
+         */
+            require('sessions/header.php');
+        /*
          * Connexion à la base de données
          */
             require('credentials.php');

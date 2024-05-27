@@ -31,9 +31,7 @@
          * on l'enregistre dans une variable de session.
          */
         $_SESSION['user'] = 'admin';
-        ?>
-            Vous êtes connecté.
-        <?php
+        header("Location:..");
     }
     else
     {
