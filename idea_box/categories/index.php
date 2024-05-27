@@ -7,6 +7,7 @@
     </head>
     <body>
     <?php
+        require('../sessions/header.php');
         /*
          * Connexion à la base de données
          */
@@ -40,16 +41,18 @@
                                     <?php print($categorie['nom']) ?>
                                 </a>
                             </td>
-                            <td>
-                                <a href="edit.php?id=<?php print($categorie['id'])?>">
-                                    Modifier
-                                </a>
-                            </td>
-                            <td>
-                                <a href="delete.php?id=<?php print($categorie['id'])?>">
-                                    Supprimer
-                                </a>
-                            </td>
+                            <?php if (isset($_SESSION['user'])){ ?>
+                                <td>
+                                    <a href="edit.php?id=<?php print($categorie['id'])?>">
+                                        Modifier
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="delete.php?id=<?php print($categorie['id'])?>">
+                                        Supprimer
+                                    </a>
+                                </td>
+                            <?php } ?>
                         </tr>
                 <?php
                         }
@@ -61,7 +64,9 @@
             print('Aucune catégorie à afficher');
    ?>
     <hr>
-    <a href="create.html">Ajouter</a>
+    <?php if (isset($_SESSION['user'])){ ?>
+        <a href="create.html">Ajouter</a>
+    <?php } ?>
     <a href="../">Retour</a>
     </body>
 </html>
