@@ -15,6 +15,7 @@
         ?>
         Vous êtes déjà connecté.
         <a href="..">Retour</a>
+        <a href="logout.php">Déconnexion</a>
         <?php
     }
     else
