@@ -4,4 +4,5 @@
   $user = '';
   $password = '';
   $dbname = '';
+  $adminpassword = 'password';
 ?>

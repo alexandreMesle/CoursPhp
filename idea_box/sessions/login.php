@@ -1,5 +1,10 @@
 <?php
     /*
+     * Chargement des identifants de connexion de l'administrateur
+     */
+    require('../credentials.php');
+
+    /*
     * Si le formulaire n'est pas rempli, on renvoit l'utilisateur sur le formulaire de connnexion
     */
     if (!isset($_POST['login']) && !isset($_POST['password']))
@@ -9,7 +14,7 @@
     * Si les identifiants de connexion sont bien ceux attendus
     */
 
-    if ($_POST['login'] == 'admin' && $_POST['password'] == 'password')
+    if ($_POST['login'] == 'admin' && $_POST['password'] == $adminpassword)
     {
         ?>
         Connexion acceptée.
