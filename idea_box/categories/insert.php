@@ -1,5 +1,10 @@
 <?php
     /*
+     * Page accessible uniquement aux administrateurs
+     */
+    require('../sessions/admin_only.php');
+
+    /*
      * Connexion à la base de données
      */
     require('../credentials.php');

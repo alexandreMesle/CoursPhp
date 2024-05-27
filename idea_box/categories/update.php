@@ -1,4 +1,5 @@
 <?php
+    require('../sessions/admin_only.php');
     /*
      * Connexion à la base de données
      */

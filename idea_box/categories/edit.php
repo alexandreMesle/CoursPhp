@@ -1,4 +1,5 @@
 <?php
+require('../sessions/admin_only.php');
 /*
  * Vérification de l'existence de id
  */
